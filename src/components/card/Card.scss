@@ -13,7 +13,7 @@
 
   transition: all 200ms ease-out;
 
-  &:hover {
+  &:hover, &.active {
     background-color: $background-color;
   }
 }
