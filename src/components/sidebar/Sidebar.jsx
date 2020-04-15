@@ -11,24 +11,26 @@ const CustomAside = styled.aside`
   background-color: #87888C;
 `;
 
-const Sidebar = ({ users }) => (
-  <Col xs={4} md={2} lg={2}>
-    <CustomAside>
-      {users.map((user) => (
-        <Card
-          key={user.id}
-          id={user.id}
-          name={user.name}
-          email={user.email}
-          company={user.company.name}
-        />
-      ))}
-    </CustomAside>
-  </Col>
-);
+const Sidebar = ({ users }) => {
+  return (
+    <Col xs={4} md={2} lg={2}>
+      <CustomAside>
+        {users ? (users.map((user) => (
+          <Card
+            key={user.id}
+            id={user.id}
+            name={user.name}
+            email={user.email}
+            company={user.company.name}
+          />
+        ))) : false }
+      </CustomAside>
+    </Col>
+  );
+};
 
 const mapStateToProps = (state) => ({
-  users: state,
+  users: state.users,
 });
 
 Sidebar.propTypes = {
